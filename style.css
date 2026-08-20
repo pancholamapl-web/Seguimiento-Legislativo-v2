@@ -18,6 +18,11 @@
 
 * { box-sizing: border-box; }
 
+/* El atributo HTML "hidden" debe ganarle siempre a display:flex de las
+   clases de abajo (.modal, .result-area, .history-chips). Sin esta regla,
+   esos bloques quedan visibles (vacíos) aunque tengan "hidden". */
+[hidden] { display: none !important; }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
