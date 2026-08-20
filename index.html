@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguimiento Legislativo — Cámara de Diputadas y Diputados</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <span class="brand-mark">SL</span>
+      <div>
+        <h1>Seguimiento Legislativo</h1>
+        <p class="brand-sub">Cámara de Diputadas y Diputados de Chile</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="search-panel">
+    <form id="search-form" autocomplete="off">
+      <label for="boletin-input">Número de boletín</label>
+      <div class="search-row">
+        <input
+          type="text"
+          id="boletin-input"
+          placeholder="Ej: 18216-05"
+          inputmode="text"
+        >
+        <button type="submit" id="search-btn">Buscar</button>
+      </div>
+      <p class="hint">Formato habitual: <code>NNNNN-XX</code>, donde XX indica la materia (05 = trabajo y previsión social, etc.)</p>
+    </form>
+
+    <div id="history-chips" class="history-chips" hidden></div>
+  </section>
+
+  <section id="status-area" class="status-area" hidden></section>
+
+  <section id="result-area" class="result-area" hidden>
+
+    <article class="card proyecto-card">
+      <div class="card-header">
+        <h2 id="proyecto-nombre">—</h2>
+        <span id="proyecto-boletin" class="badge">—</span>
+      </div>
+
+      <dl class="meta-grid">
+        <div><dt>Fecha de ingreso</dt><dd id="proyecto-fecha">—</dd></div>
+        <div><dt>Tipo de iniciativa</dt><dd id="proyecto-tipo">—</dd></div>
+        <div><dt>Cámara de origen</dt><dd id="proyecto-camara">—</dd></div>
+        <div><dt>Admisible</dt><dd id="proyecto-admisible">—</dd></div>
+      </dl>
+
+      <div class="subsection">
+        <h3>Autores</h3>
+        <ul id="proyecto-autores" class="chip-list"><li class="empty">Sin información</li></ul>
+      </div>
+
+      <div class="subsection">
+        <h3>Ministerios patrocinantes</h3>
+        <ul id="proyecto-ministerios" class="chip-list"><li class="empty">Sin información</li></ul>
+      </div>
+
+      <div class="subsection">
+        <h3>Materias</h3>
+        <ul id="proyecto-materias" class="chip-list"><li class="empty">Sin información</li></ul>
+      </div>
+    </article>
+
+    <article class="card votaciones-card">
+      <div class="card-header">
+        <h2>Votaciones</h2>
+        <span id="votaciones-count" class="badge">—</span>
+      </div>
+      <div id="votaciones-list" class="votaciones-list"></div>
+    </article>
+
+  </section>
+
+  <div id="votacion-modal" class="modal" hidden>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-panel">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">×</button>
+      <div id="modal-body"><!-- llenado dinámicamente --></div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Datos: Open Data — Cámara de Diputadas y Diputados de Chile. Herramienta no oficial.</p>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
